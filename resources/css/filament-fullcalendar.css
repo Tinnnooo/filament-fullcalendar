@@ -1,4 +1,4 @@
-@tailwind utilities;
+@import 'tailwindcss/utilities' layer(utilities);
 
 .filament-fullcalendar {
     --fc-small-font-size: 0.85em;

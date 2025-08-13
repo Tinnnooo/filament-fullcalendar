@@ -2,9 +2,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev:styles": "npx tailwindcss -i resources/css/filament-fullcalendar.css -o dist/filament-fullcalendar.css --postcss --watch",
+        "dev:styles": "npx @tailwindcss/cli -i resources/css/filament-fullcalendar.css -o dist/filament-fullcalendar.css --watch",
         "dev:scripts": "node bin/build.js --dev",
-        "build:styles": "npx tailwindcss -i resources/css/filament-fullcalendar.css -o dist/filament-fullcalendar.css --postcss --minify && npm run purge",
+        "build:styles": "npx @tailwindcss/cli -i resources/css/filament-fullcalendar.css -o dist/filament-fullcalendar.css --minify && npm run purge",
         "build:scripts": "node bin/build.js",
         "purge": "filament-purge -i dist/filament-fullcalendar.css -o dist/filament-fullcalendar.css -v 3.x",
         "dev": "npm-run-all --parallel dev:*",
@@ -41,6 +41,9 @@
         "prettier": "^3.0.0",
         "prettier-plugin-tailwindcss": "^0.1.13",
         "rrule": "^2.7.2",
-        "tailwindcss": "^3.3.2"
+        "tailwindcss": "^3.4.17"
+    },
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.11"
     }
 }
