@@ -2,6 +2,17 @@
 
 namespace Saade\FilamentFullCalendar\Widgets;
 
+use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithEvents;
+use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithRecords;
+use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithHeaderActions;
+use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithModalActions;
+use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithRawJS;
+use Saade\FilamentFullCalendar\Widgets\Concerns\CanBeConfigured;
+use Saade\FilamentFullCalendar\Actions\CreateAction;
+use Saade\FilamentFullCalendar\Actions\EditAction;
+use Saade\FilamentFullCalendar\Actions\DeleteAction;
+use Saade\FilamentFullCalendar\Actions\ViewAction;
+use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -12,16 +23,36 @@ class FullCalendarWidget extends Widget implements HasForms, HasActions
 {
     use InteractsWithForms;
     use InteractsWithActions;
-    use Concerns\InteractsWithEvents;
-    use Concerns\InteractsWithRecords;
-    use Concerns\InteractsWithHeaderActions;
-    use Concerns\InteractsWithModalActions;
-    use Concerns\InteractsWithRawJS;
-    use Concerns\CanBeConfigured;
+    use InteractsWithEvents;
+    use InteractsWithRecords;
+    use InteractsWithHeaderActions;
+    use InteractsWithModalActions;
+    use InteractsWithRawJS;
+    use CanBeConfigured;
 
     protected string $view = 'filament-fullcalendar::fullcalendar';
 
     protected int | string | array $columnSpan = 'full';
+
+    protected function headerActions(): array
+    {
+        return [
+            CreateAction::make(),
+        ];
+    }
+
+    protected function modalActions(): array
+    {
+        return [
+            EditAction::make(),
+            DeleteAction::make(),
+        ];
+    }
+
+    protected function viewAction(): Action
+    {
+        return ViewAction::make();
+    }
 
     /**
      * FullCalendar will call this function whenever it needs new event data.
