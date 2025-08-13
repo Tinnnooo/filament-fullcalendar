@@ -15,7 +15,7 @@ class CreateAction extends BaseCreateAction
             fn (FullCalendarWidget $livewire) => $livewire->getModel()
         );
 
-        $this->schema(
+        $this->form(
             fn (FullCalendarWidget $livewire) => $livewire->getFormSchema()
         );
 

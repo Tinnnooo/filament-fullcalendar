@@ -19,7 +19,7 @@ class ViewAction extends BaseViewAction
             fn (FullCalendarWidget $livewire) => $livewire->getRecord()
         );
 
-        $this->schema(
+        $this->form(
             fn (FullCalendarWidget $livewire) => $livewire->getFormSchema()
         );
 
