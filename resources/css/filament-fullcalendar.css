@@ -1,4 +1,8 @@
-@import 'tailwindcss/utilities' layer(utilities);
+@import "tailwindcss";
+
+@source "../**/*.blade.php";
+
+@reference "tailwindcss";
 
 .filament-fullcalendar {
     --fc-small-font-size: 0.85em;
