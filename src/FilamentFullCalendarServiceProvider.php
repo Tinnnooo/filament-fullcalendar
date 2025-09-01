@@ -1,6 +1,6 @@
 <?php
 
-namespace Saade\FilamentFullCalendar;
+namespace Noin\FilamentFullCalendar;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Css;
@@ -31,7 +31,7 @@ class FilamentFullCalendarServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'saade/filament-fullcalendar';
+        return 'noin/filament-fullcalendar';
     }
 
     /**
@@ -41,7 +41,7 @@ class FilamentFullCalendarServiceProvider extends PackageServiceProvider
     {
         return [
             AlpineComponent::make('filament-fullcalendar-alpine', __DIR__.'/../dist/filament-fullcalendar.js'),
-            Css::make('filament-fullcalendar-styles', __DIR__.'/../dist/filament-fullcalendar.css'),
+            Css::make('filament-fullcalendar-styles', __DIR__.'/../dist/filament-fullcalendar.css')->loadedOnRequest(),
         ];
     }
 }

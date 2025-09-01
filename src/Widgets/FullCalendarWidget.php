@@ -1,6 +1,6 @@
 <?php
 
-namespace Saade\FilamentFullCalendar\Widgets;
+namespace Noin\FilamentFullCalendar\Widgets;
 
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -8,16 +8,16 @@ use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Widgets\Widget;
-use Saade\FilamentFullCalendar\Actions\CreateAction;
-use Saade\FilamentFullCalendar\Actions\DeleteAction;
-use Saade\FilamentFullCalendar\Actions\EditAction;
-use Saade\FilamentFullCalendar\Actions\ViewAction;
-use Saade\FilamentFullCalendar\Widgets\Concerns\CanBeConfigured;
-use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithEvents;
-use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithHeaderActions;
-use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithModalActions;
-use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithRawJS;
-use Saade\FilamentFullCalendar\Widgets\Concerns\InteractsWithRecords;
+use Noin\FilamentFullCalendar\Actions\CreateAction;
+use Noin\FilamentFullCalendar\Actions\DeleteAction;
+use Noin\FilamentFullCalendar\Actions\EditAction;
+use Noin\FilamentFullCalendar\Actions\ViewAction;
+use Noin\FilamentFullCalendar\Widgets\Concerns\CanBeConfigured;
+use Noin\FilamentFullCalendar\Widgets\Concerns\InteractsWithEvents;
+use Noin\FilamentFullCalendar\Widgets\Concerns\InteractsWithHeaderActions;
+use Noin\FilamentFullCalendar\Widgets\Concerns\InteractsWithModalActions;
+use Noin\FilamentFullCalendar\Widgets\Concerns\InteractsWithRawJS;
+use Noin\FilamentFullCalendar\Widgets\Concerns\InteractsWithRecords;
 
 class FullCalendarWidget extends Widget implements HasActions, HasForms
 {

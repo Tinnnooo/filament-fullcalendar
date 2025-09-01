@@ -34,7 +34,7 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "Saade\\FilamentFullCalendar\\": "src"
+            "Noin\\FilamentFullCalendar\\": "src"
         }
     },
     "scripts": {
@@ -51,7 +51,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Saade\\FilamentFullCalendar\\FilamentFullCalendarServiceProvider"
+                "Noin\\FilamentFullCalendar\\FilamentFullCalendarServiceProvider"
             ]
         }
     },

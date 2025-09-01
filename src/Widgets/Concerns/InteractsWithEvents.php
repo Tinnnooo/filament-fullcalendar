@@ -1,9 +1,9 @@
 <?php
 
-namespace Saade\FilamentFullCalendar\Widgets\Concerns;
+namespace Noin\FilamentFullCalendar\Widgets\Concerns;
 
 use Carbon\Carbon;
-use Saade\FilamentFullCalendar\FilamentFullCalendarPlugin;
+use Noin\FilamentFullCalendar\FilamentFullCalendarPlugin;
 
 trait InteractsWithEvents
 {

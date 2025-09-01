@@ -1,6 +1,6 @@
 <?php
 
-namespace Saade\FilamentFullCalendar\Widgets\Concerns;
+namespace Noin\FilamentFullCalendar\Widgets\Concerns;
 
 use Closure;
 use Filament\Actions\Action;

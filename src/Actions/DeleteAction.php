@@ -1,9 +1,9 @@
 <?php
 
-namespace Saade\FilamentFullCalendar\Actions;
+namespace Noin\FilamentFullCalendar\Actions;
 
 use Filament\Actions\DeleteAction as BaseDeleteAction;
-use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
+use Noin\FilamentFullCalendar\Widgets\FullCalendarWidget;
 
 class DeleteAction extends BaseDeleteAction
 {
