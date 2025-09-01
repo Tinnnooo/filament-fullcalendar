@@ -1,16 +1,18 @@
 @php
-    $plugin = \Saade\FilamentFullCalendar\FilamentFullCalendarPlugin::get();
+    use Filament\Support\Enums\Alignment;
+    $plugin = \Noin\FilamentFullCalendar\FilamentFullCalendarPlugin::get();
 @endphp
 
 <x-filament-widgets::widget>
+
     <x-filament::section>
         <div class="flex justify-end flex-1 mb-4">
-            <x-filament-actions::actions :actions="$this->getCachedHeaderActions()" class="shrink-0" />
+            <x-filament::actions :actions="$this->getCachedHeaderActions()" class="shrink-0" alignment="{{ Alignment::End }}" />
         </div>
 
-        <div class="filament-fullcalendar" wire:ignore ax-load
-            ax-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('filament-fullcalendar-alpine', 'noin/filament-fullcalendar') }}"
-            ax-load-css="{{ \Filament\Support\Facades\FilamentAsset::getStyleHref('filament-fullcalendar-styles', 'noin/filament-fullcalendar') }}"
+        <div class="filament-fullcalendar" wire:ignore x-load
+            x-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('filament-fullcalendar-alpine', 'noin/filament-fullcalendar') }}"
+            x-load-css="[@js(\Filament\Support\Facades\FilamentAsset::getStyleHref('filament-fullcalendar-styles', 'noin/filament-fullcalendar'))]"
             x-ignore x-data="fullcalendar({
                 locale: @js($plugin->getLocale()),
                 plugins: @js($plugin->getPlugins()),

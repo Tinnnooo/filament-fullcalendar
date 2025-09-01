@@ -2,17 +2,18 @@
 
 namespace Noin\FilamentFullCalendar\Widgets\Concerns;
 
-use Closure;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
-use InvalidArgumentException;
+use Illuminate\Support\Arr;
 
 trait InteractsWithModalActions
 {
     /**
      * @var array<Action | ActionGroup>
      */
-    protected array $cachedModalActions = [];
+    protected array $cachedModalActions;
+
+    protected array $modalActions = [];
 
     public function bootedInteractsWithModalActions(): void
     {
@@ -22,29 +23,21 @@ trait InteractsWithModalActions
     protected function cacheModalActions(): void
     {
         /** @var array<string, Action | ActionGroup> */
-        $actions = Action::configureUsing(
-            Closure::fromCallable([$this, 'configureAction']),
-            fn (): array => $this->modalActions(),
-        );
+        $actions = $this->modalActions();
 
         foreach ($actions as $action) {
             if ($action instanceof ActionGroup) {
                 $action->livewire($this);
 
-                /** @var array<string, Action> $flatActions */
-                $flatActions = $action->getFlatActions();
+                if (! $action->getDropdownPlacement()) {
+                    $action->dropdownPlacement('bottom-end');
+                }
 
-                $this->mergeCachedActions($flatActions);
                 $this->cachedModalActions[] = $action;
 
                 continue;
             }
 
-            if (! $action instanceof Action) {
-                throw new InvalidArgumentException('Modal actions must be an instance of '.Action::class.', or '.ActionGroup::class.'.');
-            }
-
-            $this->cacheAction($action);
             $this->cachedModalActions[] = $action;
         }
     }
@@ -54,11 +47,19 @@ trait InteractsWithModalActions
      */
     public function getCachedModalActions(): array
     {
-        if (! $this->getModel()) {
-            return [];
+        if (isset($this->cachedModalActions)) {
+            return $this->cachedModalActions;
         }
 
-        return $this->cachedModalActions;
+        $actions = [];
+
+        foreach ($this->modalActions() as $action) {
+            foreach (Arr::wrap($this->evaluate($action)) as $modalAction) {
+                $actions[$modalAction->getName()] = $modalAction;
+            }
+        }
+
+        return $this->cachedModalActions = $actions;
     }
 
     /**

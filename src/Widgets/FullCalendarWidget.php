@@ -7,6 +7,7 @@ use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Widgets\Widget;
 use Noin\FilamentFullCalendar\Actions\CreateAction;
 use Noin\FilamentFullCalendar\Actions\DeleteAction;
@@ -22,6 +23,7 @@ use Noin\FilamentFullCalendar\Widgets\Concerns\InteractsWithRecords;
 class FullCalendarWidget extends Widget implements HasActions, HasForms
 {
     use CanBeConfigured;
+    use EvaluatesClosures;
     use InteractsWithActions;
     use InteractsWithEvents;
     use InteractsWithForms;
